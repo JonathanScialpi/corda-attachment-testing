@@ -3,6 +3,7 @@ package com.template.flows
 import co.paralleluniverse.fibers.Suspendable
 import com.template.contracts.HashedFilesContract
 import com.template.states.HashedFilesState
+import net.corda.core.crypto.SecureHash
 import net.corda.core.flows.*
 import net.corda.core.identity.Party
 import net.corda.core.internal.InputStreamAndHash
@@ -23,14 +24,14 @@ class HashedFilesIssue(
     private companion object{ val Int.MB: Long get() = this * 1024L * 1024L }
     @Suspendable
     override fun call(): SignedTransaction{
-        val filesHashList =  mutableListOf<String>()
+        val filesHashList =  mutableListOf<SecureHash>()
         var counter = 0
         while(counter < numberOfFiles){
             var fileName = "test-file$counter"
             var generatedStreamHash =  InputStreamAndHash.createInMemoryTestZip(fileSize.MB.toInt(), 0, fileName)
             var attachmentHash = serviceHub.attachments.importAttachment(
                     generatedStreamHash.inputStream, ourIdentity.toString(), fileName
-            ).toString()
+            )
             filesHashList.add(attachmentHash)
         }
 
@@ -46,6 +47,7 @@ class HashedFilesIssue(
     }
 }
 
+// Responder flow isn't needed because no other sigs are needed...
 
 //@InitiatedBy(HashedFilesIssue::class)
 //class Responder(val counterpartySession: FlowSession) : FlowLogic<Unit>() {
