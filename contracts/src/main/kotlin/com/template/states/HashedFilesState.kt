@@ -15,7 +15,7 @@ import net.corda.core.identity.AbstractParty
 data class HashedFilesState(
         val fileHashes: List<SecureHash> = listOf(),
         override val participants: List<AbstractParty> = listOf(),
-        override val linearId: UniqueIdentifier
+        override val linearId: UniqueIdentifier = UniqueIdentifier()
 ) : LinearState{
 
 }

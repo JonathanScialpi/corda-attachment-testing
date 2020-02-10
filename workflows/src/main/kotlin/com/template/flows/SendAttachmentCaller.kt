@@ -22,13 +22,12 @@ import java.util.*
 class SendAttachmentCaller(
         private val buyer: Party,
         private val seller: Party,
-        private val linearid: UniqueIdentifier)  : FlowLogic<SignedTransaction>() {
+        private val linearId: UniqueIdentifier)  : FlowLogic<Unit>() {
 
-    private companion object{ val Int.MB: Long get() = this * 1024L * 1024L }
     @Suspendable
-    override fun call(): SignedTransaction{
+    override fun call(){
         //grab the list of hashes for the generated files
-        val queryCriteria = QueryCriteria.LinearStateQueryCriteria(linearId = listOf(linearid))
+        val queryCriteria = QueryCriteria.LinearStateQueryCriteria(linearId = listOf(linearId))
         val hashFilesState = serviceHub.vaultService.queryBy<HashedFilesState>(queryCriteria).states.single()
         val fileSet = hashFilesState.state.data.fileHashes
 
@@ -38,18 +37,6 @@ class SendAttachmentCaller(
             subFlow(SendAttachment(buyer, attachmentHash))
             subFlow(SendAttachment(seller, attachmentHash))
         }
-
-
-
-
-//        val transactionBuilder = TransactionBuilder(notary)
-//        val output = HashedFilesState(filesHashList, listOf(ourIdentity))
-//        val commandData = HashedFilesContract.Commands.Issue()
-//        transactionBuilder.addCommand(commandData,ourIdentity.owningKey)
-//        transactionBuilder.addOutputState(output, HashedFilesContract.ID)
-//        transactionBuilder.verify(serviceHub)
-//        val stx = serviceHub.signInitialTransaction(transactionBuilder)
-//        return subFlow(FinalityFlow(stx, HashSet<FlowSession>(0)))
     }
 }
 
