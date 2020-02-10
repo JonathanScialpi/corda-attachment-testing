@@ -18,6 +18,8 @@ import java.util.*
 @InitiatingFlow
 @StartableByRPC
 class HashedFilesIssue(
+        private val testName: String,
+        private val content: Byte,
         private val fileSize: Int,
         private val numberOfFiles: Int) : FlowLogic<SignedTransaction>() {
 
@@ -27,12 +29,13 @@ class HashedFilesIssue(
         val filesHashList =  mutableListOf<SecureHash>()
         var counter = 0
         while(counter < numberOfFiles){
-            var fileName = "test-file$counter"
-            var generatedStreamHash =  InputStreamAndHash.createInMemoryTestZip(fileSize.MB.toInt(), 0, fileName)
+            var fileName = testName + counter
+            var generatedStreamHash =  InputStreamAndHash.createInMemoryTestZip(fileSize.MB.toInt(), content, fileName)
             var attachmentHash = serviceHub.attachments.importAttachment(
                     generatedStreamHash.inputStream, ourIdentity.toString(), fileName
             )
             filesHashList.add(attachmentHash)
+            counter++
         }
 
         val notary = serviceHub.networkMapCache.notaryIdentities.first()

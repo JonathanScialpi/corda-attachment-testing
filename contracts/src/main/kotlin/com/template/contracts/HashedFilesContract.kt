@@ -10,7 +10,7 @@ import net.corda.core.transactions.LedgerTransaction
 class HashedFilesContract : Contract {
     companion object {
         // Used to identify our contract when building a transaction.
-        const val ID = "com.template.contracts.GenerateFilesContract"
+        const val ID = "com.template.contracts.HashedFilesContract"
     }
 
     // Used to indicate the transaction's intent.
