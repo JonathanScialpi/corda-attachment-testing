@@ -14,7 +14,7 @@ import net.corda.core.transactions.TransactionBuilder
 // *********
 // * Flows *
 // *********
-@InitiatingFlow
+//@InitiatingFlow
 @StartableByRPC
 class SendAttachment(
         private val receiver: Party,

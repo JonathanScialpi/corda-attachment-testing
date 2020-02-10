@@ -3,9 +3,9 @@ package com.template.flows
 import co.paralleluniverse.fibers.Suspendable
 import com.template.contracts.HashedFilesContract
 import com.template.states.HashedFilesState
+import net.corda.core.contracts.UniqueIdentifier
 import net.corda.core.crypto.SecureHash
 import net.corda.core.flows.*
-import net.corda.core.identity.Party
 import net.corda.core.internal.InputStreamAndHash
 import net.corda.core.transactions.SignedTransaction
 import net.corda.core.transactions.TransactionBuilder
@@ -37,7 +37,7 @@ class HashedFilesIssue(
 
         val notary = serviceHub.networkMapCache.notaryIdentities.first()
         val transactionBuilder = TransactionBuilder(notary)
-        val output = HashedFilesState(filesHashList, listOf(ourIdentity))
+        val output = HashedFilesState(filesHashList, listOf(ourIdentity), UniqueIdentifier())
         val commandData = HashedFilesContract.Commands.Issue()
         transactionBuilder.addCommand(commandData,ourIdentity.owningKey)
         transactionBuilder.addOutputState(output, HashedFilesContract.ID)
