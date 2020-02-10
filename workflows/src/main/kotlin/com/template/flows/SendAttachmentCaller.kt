@@ -39,13 +39,3 @@ class SendAttachmentCaller(
         }
     }
 }
-
-// Responder flow isn't needed because no other sigs are needed...
-
-//@InitiatedBy(HashedFilesIssue::class)
-//class Responder(val counterpartySession: FlowSession) : FlowLogic<Unit>() {
-//    @Suspendable
-//    override fun call() {
-//
-//    }
-//}
