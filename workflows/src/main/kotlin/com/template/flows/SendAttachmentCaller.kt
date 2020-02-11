@@ -20,20 +20,28 @@ import java.util.*
 @InitiatingFlow
 @StartableByRPC
 class SendAttachmentCaller(
-        private val buyer: Party,
-        private val seller: Party,
+        private val recipientA: Party,
+        private val recipientB: Party?,
         private val linearId: UniqueIdentifier)  : FlowLogic<Unit>() {
 
     @Suspendable
     override fun call(){
+
         //grab the list of hashes for the generated files
         val queryCriteria = QueryCriteria.LinearStateQueryCriteria(linearId = listOf(linearId))
         val hashFilesState = serviceHub.vaultService.queryBy<HashedFilesState>(queryCriteria).states.single()
         val fileSet = hashFilesState.state.data.fileHashes
+
         //for each of the hashes found, call the send attachment flow for the buyer and seller
-        for(attachmentHash in fileSet){
-            subFlow(SendAttachment(buyer, attachmentHash))
-            subFlow(SendAttachment(seller, attachmentHash))
+        if (recipientB != null) {
+            for(attachmentHash in fileSet){
+                subFlow(SendAttachment(recipientA, attachmentHash))
+                subFlow(SendAttachment(recipientB, attachmentHash))
+            }
+        }else{
+            for(attachmentHash in fileSet){
+                subFlow(SendAttachment(recipientA, attachmentHash))
+            }
         }
     }
 }

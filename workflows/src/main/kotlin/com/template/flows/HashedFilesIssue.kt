@@ -52,13 +52,3 @@ class HashedFilesIssue(
         return subFlow(FinalityFlow(stx, HashSet<FlowSession>(0)))
     }
 }
-
-// Responder flow isn't needed because no other sigs are needed...
-
-//@InitiatedBy(HashedFilesIssue::class)
-//class Responder(val counterpartySession: FlowSession) : FlowLogic<Unit>() {
-//    @Suspendable
-//    override fun call() {
-//
-//    }
-//}

@@ -121,7 +121,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         }
     }
     node {
-        name "O=PCX,L=East,C=US"
+        name "O=Issuer,L=East,C=US"
         p2pPort 10005
         rpcSettings {
             address("localhost:10006")
@@ -130,7 +130,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         rpcUsers = [[ user: "user1", "password": "test", "permissions": ["ALL"]]]
     }
     node {
-        name "O=HCA,L=Central,C=CA"
+        name "O=RecipientA,L=Central,C=CA"
         p2pPort 10008
         rpcSettings {
             address("localhost:10009")
@@ -139,7 +139,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         rpcUsers = [[ user: "user1", "password": "test", "permissions": ["ALL"]]]
     }
     node {
-        name "O=Kaiser,L=Northern,C=GL"
+        name "O=RecipientB,L=East,C=US"
         p2pPort 10011
         rpcSettings {
             address("localhost:10012")
