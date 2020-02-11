@@ -30,8 +30,6 @@ class SendAttachmentCaller(
         val queryCriteria = QueryCriteria.LinearStateQueryCriteria(linearId = listOf(linearId))
         val hashFilesState = serviceHub.vaultService.queryBy<HashedFilesState>(queryCriteria).states.single()
         val fileSet = hashFilesState.state.data.fileHashes
-
-        val notary = serviceHub.networkMapCache.notaryIdentities.first()
         //for each of the hashes found, call the send attachment flow for the buyer and seller
         for(attachmentHash in fileSet){
             subFlow(SendAttachment(buyer, attachmentHash))

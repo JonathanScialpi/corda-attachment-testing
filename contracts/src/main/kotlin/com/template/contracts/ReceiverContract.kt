@@ -1,16 +1,15 @@
 package com.template.contracts
 
-import com.template.states.HashedFilesState
 import net.corda.core.contracts.*
 import net.corda.core.transactions.LedgerTransaction
 
 // ************
 // * Contract *
 // ************
-class DummyContract : Contract {
+class ReceiverContract : Contract {
     companion object {
         // Used to identify our contract when building a transaction.
-        const val ID = "com.template.contracts.DummyContract"
+        const val ID = "com.template.contracts.ReceiverContract"
     }
 
     // Used to indicate the transaction's intent.
@@ -21,7 +20,7 @@ class DummyContract : Contract {
     // A transaction is valid if the verify() function of the contract of all the transaction's input and output states
     // does not throw an exception.
     override fun verify(tx: LedgerTransaction) {
-        val command = tx.commands.requireSingleCommand<DummyContract.Commands>()
+        val command = tx.commands.requireSingleCommand<ReceiverContract.Commands>()
         when (command.value) {
             is Commands.Issue -> requireThat {
                 "No inputs should be consumed when issuing a Model." using (tx.inputs.isEmpty())

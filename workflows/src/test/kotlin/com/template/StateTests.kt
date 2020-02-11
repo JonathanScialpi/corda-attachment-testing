@@ -1,7 +1,10 @@
 package com.template
 import com.template.flows.HashedFilesIssue
+import com.template.flows.SendAttachmentCaller
 import com.template.states.HashedFilesState
 import net.corda.core.identity.CordaX500Name
+import net.corda.core.node.services.vault.AttachmentQueryCriteria
+import net.corda.core.node.services.vault.Builder
 import net.corda.core.transactions.SignedTransaction
 import net.corda.core.utilities.getOrThrow
 import net.corda.testing.internal.chooseIdentityAndCert
@@ -42,10 +45,7 @@ class StateTests {
 
     @Test
     fun flowReturnsSignedTransaction(){
-        //val pcx = a.info.chooseIdentityAndCert().party
-        //val buyer = b.info.chooseIdentityAndCert().party
-        //val seller = c.info.chooseIdentityAndCert().party
-        val flow = HashedFilesIssue("test-2-10-308-",1, 1, 1)
+        val flow = HashedFilesIssue("test-2-11-1151-",1, 1, 1)
         val future = a.startFlow(flow)
         mockNetwork.runNetwork()
         val stx: SignedTransaction = future.getOrThrow()
@@ -54,4 +54,38 @@ class StateTests {
         assert(stx.tx.attachments.isNotEmpty())
         stx.verifyRequiredSignatures()
     }
+
+//    @Test
+//    fun allPartiesHaveReceivedAttachments(){
+//        val pcx = a.info.chooseIdentityAndCert().party
+//        val buyer = b.info.chooseIdentityAndCert().party
+//        val seller = c.info.chooseIdentityAndCert().party
+//        val hashedFilesIssueFlow = HashedFilesIssue("test-2-10-311-",1, 1, 1)
+//        val hashedFilesFuture = a.startFlow(hashedFilesIssueFlow)
+//        mockNetwork.runNetwork()
+//
+//        val stx: SignedTransaction = hashedFilesFuture.getOrThrow()
+//        val outputState: HashedFilesState = stx.tx.outputStates.get(0) as HashedFilesState
+//
+//        val sendAttachmentsCallerFlow = SendAttachmentCaller(buyer, seller, outputState.linearId)
+//        val sendAttachmentCallerFuture = a.startFlow(sendAttachmentsCallerFlow)
+//        mockNetwork.runNetwork()
+//
+//        val attachmentsFoundBuyer = b.services.attachments.queryAttachments(
+//                AttachmentQueryCriteria.AttachmentsQueryCriteria(
+//                        uploaderCondition = Builder.like("test-", false)
+//                )
+//        )
+//
+//        assert(attachmentsFoundBuyer.isNotEmpty())
+//
+//        val attachmentsFoundSeller = c.services.attachments.queryAttachments(
+//                AttachmentQueryCriteria.AttachmentsQueryCriteria(
+//                        uploaderCondition = Builder.like("test-", false)
+//                )
+//        )
+//
+//        assert(attachmentsFoundSeller.isNotEmpty())
+//
+//    }
 }

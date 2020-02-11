@@ -23,11 +23,14 @@ class HashedFilesIssue(
         private val fileSize: Int,
         private val numberOfFiles: Int) : FlowLogic<SignedTransaction>() {
 
-    private companion object{ val Int.MB: Long get() = this * 1024L * 1024L }
+    private companion object{
+        val Int.MB: Long get() = this * 1024L * 1024L
+    }
     @Suspendable
     override fun call(): SignedTransaction{
         val filesHashList =  mutableListOf<SecureHash>()
         var counter = 0
+
         while(counter < numberOfFiles){
             var fileName = testName + counter
             var generatedStreamHash =  InputStreamAndHash.createInMemoryTestZip(fileSize.MB.toInt(), content, fileName)
