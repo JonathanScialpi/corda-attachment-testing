@@ -32,9 +32,6 @@ class StateTests {
         a = mockNetwork.createNode(MockNodeParameters())
         b = mockNetwork.createNode(MockNodeParameters())
         c = mockNetwork.createNode(MockNodeParameters())
-        // val startedNodes = arrayListOf(a, b, c)
-        // For real nodes this happens automatically, but we have to manually register the flow for tests
-        //startedNodes.forEach { it.registerInitiatedFlow(IOUIssueFlowResponder::class.java) }
         mockNetwork.runNetwork()
     }
 
@@ -45,7 +42,7 @@ class StateTests {
 
     @Test
     fun flowReturnsSignedTransaction(){
-        val flow = HashedFilesIssue("test-2-11-1151-",1, 1, 1)
+        val flow = HashedFilesIssue("test-2-11-138-",1, 1, 1)
         val future = a.startFlow(flow)
         mockNetwork.runNetwork()
         val stx: SignedTransaction = future.getOrThrow()
@@ -57,9 +54,9 @@ class StateTests {
 
 //    @Test
 //    fun allPartiesHaveReceivedAttachments(){
-//        val pcx = a.info.chooseIdentityAndCert().party
-//        val buyer = b.info.chooseIdentityAndCert().party
-//        val seller = c.info.chooseIdentityAndCert().party
+//        val partyA = a.info.chooseIdentityAndCert().party
+//        val partyB = b.info.chooseIdentityAndCert().party
+//        val partyC = c.info.chooseIdentityAndCert().party
 //        val hashedFilesIssueFlow = HashedFilesIssue("test-2-10-311-",1, 1, 1)
 //        val hashedFilesFuture = a.startFlow(hashedFilesIssueFlow)
 //        mockNetwork.runNetwork()
@@ -67,25 +64,25 @@ class StateTests {
 //        val stx: SignedTransaction = hashedFilesFuture.getOrThrow()
 //        val outputState: HashedFilesState = stx.tx.outputStates.get(0) as HashedFilesState
 //
-//        val sendAttachmentsCallerFlow = SendAttachmentCaller(buyer, seller, outputState.linearId)
+//        val sendAttachmentsCallerFlow = SendAttachmentCaller(partyB, partyC, outputState.linearId)
 //        val sendAttachmentCallerFuture = a.startFlow(sendAttachmentsCallerFlow)
 //        mockNetwork.runNetwork()
 //
-//        val attachmentsFoundBuyer = b.services.attachments.queryAttachments(
+//        val attachmentsFoundPartyB = b.services.attachments.queryAttachments(
 //                AttachmentQueryCriteria.AttachmentsQueryCriteria(
 //                        uploaderCondition = Builder.like("test-", false)
 //                )
 //        )
 //
-//        assert(attachmentsFoundBuyer.isNotEmpty())
+//        assert(attachmentsFoundPartyB.isNotEmpty())
 //
-//        val attachmentsFoundSeller = c.services.attachments.queryAttachments(
+//        val attachmentsFoundPartyC = c.services.attachments.queryAttachments(
 //                AttachmentQueryCriteria.AttachmentsQueryCriteria(
 //                        uploaderCondition = Builder.like("test-", false)
 //                )
 //        )
 //
-//        assert(attachmentsFoundSeller.isNotEmpty())
+//        assert(attachmentsFoundPartyC.isNotEmpty())
 //
 //    }
 }
