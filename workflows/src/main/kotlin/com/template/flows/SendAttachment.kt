@@ -1,8 +1,8 @@
 package com.template.flows
 
 import co.paralleluniverse.fibers.Suspendable
-import com.template.contracts.DummyContract
-import com.template.states.DummyState
+import com.template.contracts.ReceiverContract
+import com.template.states.ReceiverState
 import net.corda.core.contracts.requireThat
 import net.corda.core.crypto.SecureHash
 import net.corda.core.flows.*
@@ -14,7 +14,7 @@ import net.corda.core.transactions.TransactionBuilder
 // *********
 // * Flows *
 // *********
-//@InitiatingFlow
+@InitiatingFlow
 @StartableByRPC
 class SendAttachment(
         private val receiver: Party,
@@ -24,14 +24,14 @@ class SendAttachment(
     @Suspendable
     override fun call(): SignedTransaction{
 
-        val outputState = DummyState(listOf(ourIdentity, receiver))
-        val commandData = DummyContract.Commands.Issue()
+        val outputState = ReceiverState(attachmentHash, listOf(ourIdentity, receiver))
+        val commandData = ReceiverContract.Commands.Issue()
 
         //build the buyer TX
         val notary = serviceHub.networkMapCache.notaryIdentities.first()
         val transactionBuilder = TransactionBuilder(notary)
         transactionBuilder.addCommand(commandData, ourIdentity.owningKey, receiver.owningKey)
-                .addOutputState(outputState, DummyContract.ID)
+                .addOutputState(outputState, ReceiverContract.ID)
                 .addAttachment(attachmentHash)
                 .verify(serviceHub)
         val ptx = serviceHub.signInitialTransaction(transactionBuilder)
@@ -43,7 +43,7 @@ class SendAttachment(
 
 // Responder flow isn't needed because no other sigs are needed...
 
-@InitiatedBy(HashedFilesIssue::class)
+@InitiatedBy(SendAttachment::class)
 class Responder(val counterpartySession: FlowSession) : FlowLogic<Unit>() {
     @Suspendable
     override fun call() {
