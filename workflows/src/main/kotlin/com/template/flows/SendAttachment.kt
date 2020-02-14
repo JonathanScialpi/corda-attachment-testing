@@ -18,11 +18,12 @@ import net.corda.core.transactions.TransactionBuilder
 @StartableByRPC
 class SendAttachment(
         private val receiver: Party,
-        private val attachmentHash: SecureHash
+        private val attachmentHash: String
         ) : FlowLogic<SignedTransaction>() {
 
     @Suspendable
     override fun call(): SignedTransaction{
+        val attachmentHash = SecureHash.parse(attachmentHash)
 
         val outputState = ReceiverState(attachmentHash, listOf(ourIdentity, receiver))
         val commandData = ReceiverContract.Commands.Issue()
