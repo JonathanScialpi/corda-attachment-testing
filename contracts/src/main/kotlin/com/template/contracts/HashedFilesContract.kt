@@ -1,6 +1,6 @@
 package com.template.contracts
 
-import com.template.states.HashedFilesState
+import com.template.states.GeneratedFilesState
 import net.corda.core.contracts.*
 import net.corda.core.transactions.LedgerTransaction
 
@@ -26,7 +26,7 @@ class HashedFilesContract : Contract {
             is Commands.Issue -> requireThat {
                 "No inputs should be consumed when issuing a Model." using (tx.inputs.isEmpty())
                 "Only one output state should be created when issuing a Model." using (tx.outputs.size == 1)
-                val model = tx.outputsOfType<HashedFilesState>().single()
+                val model = tx.outputsOfType<GeneratedFilesState>().single()
                 "There must be at least one hashed file." using (model.participants.isNotEmpty())
             }
         }

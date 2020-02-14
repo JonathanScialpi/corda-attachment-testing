@@ -1,18 +1,13 @@
 package com.template
 import com.template.flows.HashedFilesIssue
-import com.template.flows.SendAttachmentCaller
-import com.template.states.HashedFilesState
+import com.template.states.GeneratedFilesState
 import net.corda.core.identity.CordaX500Name
-import net.corda.core.node.services.vault.AttachmentQueryCriteria
-import net.corda.core.node.services.vault.Builder
 import net.corda.core.transactions.SignedTransaction
 import net.corda.core.utilities.getOrThrow
-import net.corda.testing.internal.chooseIdentityAndCert
 import net.corda.testing.node.MockNetwork
 import net.corda.testing.node.MockNetworkNotarySpec
 import net.corda.testing.node.MockNodeParameters
 import net.corda.testing.node.StartedMockNode
-import net.corda.testing.node.internal.findCordapp
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -42,12 +37,12 @@ class StateTests {
 
     @Test
     fun flowReturnsSignedTransaction(){
-        val flow = HashedFilesIssue("test-2-11-138-",1, 1, 1)
+        val flow = HashedFilesIssue("test-2-11-777-",1, 1, 1)
         val future = a.startFlow(flow)
         mockNetwork.runNetwork()
         val stx: SignedTransaction = future.getOrThrow()
         assert(stx.tx.inputs.isEmpty())
-        assert(stx.tx.outputs.single().data is HashedFilesState)
+        assert(stx.tx.outputs.single().data is GeneratedFilesState)
         assert(stx.tx.attachments.isNotEmpty())
         stx.verifyRequiredSignatures()
     }

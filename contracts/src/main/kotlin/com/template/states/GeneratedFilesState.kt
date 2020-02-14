@@ -12,8 +12,8 @@ import net.corda.core.identity.AbstractParty
 // * State *
 // *********
 @BelongsToContract(HashedFilesContract::class)
-data class HashedFilesState(
-        val fileHashes: List<SecureHash> = listOf(),
+data class GeneratedFilesState(
+        val fileHashes: List<String> = listOf(),
         override val participants: List<AbstractParty> = listOf(),
         override val linearId: UniqueIdentifier = UniqueIdentifier()
 ) : LinearState{

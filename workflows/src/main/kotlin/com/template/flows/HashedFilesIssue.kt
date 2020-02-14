@@ -2,9 +2,8 @@ package com.template.flows
 
 import co.paralleluniverse.fibers.Suspendable
 import com.template.contracts.HashedFilesContract
-import com.template.states.HashedFilesState
+import com.template.states.GeneratedFilesState
 import net.corda.core.contracts.UniqueIdentifier
-import net.corda.core.crypto.SecureHash
 import net.corda.core.flows.*
 import net.corda.core.internal.InputStreamAndHash
 import net.corda.core.transactions.SignedTransaction
@@ -28,7 +27,7 @@ class HashedFilesIssue(
     }
     @Suspendable
     override fun call(): SignedTransaction{
-        val filesHashList =  mutableListOf<SecureHash>()
+        val filesHashList =  mutableListOf<String>()
         var counter = 0
 
         while(counter < numberOfFiles){
@@ -37,13 +36,13 @@ class HashedFilesIssue(
             var attachmentHash = serviceHub.attachments.importAttachment(
                     generatedStreamHash.inputStream, ourIdentity.toString(), fileName
             )
-            filesHashList.add(attachmentHash)
+            filesHashList.add(attachmentHash.toString())
             counter++
         }
 
         val notary = serviceHub.networkMapCache.notaryIdentities.first()
         val transactionBuilder = TransactionBuilder(notary)
-        val output = HashedFilesState(filesHashList, listOf(ourIdentity), UniqueIdentifier())
+        val output = GeneratedFilesState(filesHashList, listOf(ourIdentity), UniqueIdentifier())
         val commandData = HashedFilesContract.Commands.Issue()
         transactionBuilder.addCommand(commandData,ourIdentity.owningKey)
         transactionBuilder.addOutputState(output, HashedFilesContract.ID)
