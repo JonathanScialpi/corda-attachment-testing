@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7c3a7266-6673-4d1f-8469-fb2ce28bccf9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Python/async-rpc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Debug_CorDapp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/.idea/runConfigurations/Debug_CorDapp.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Run_Contract_Tests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/.idea/runConfigurations/Run_Contract_Tests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Run_Flow_Tests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/.idea/runConfigurations/Run_Flow_Tests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Run_Integration_Tests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/.idea/runConfigurations/Run_Integration_Tests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Run_Template_Client.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/.idea/runConfigurations/Run_Template_Client.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Run_Template_Cordapp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/.idea/runConfigurations/Run_Template_Cordapp.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Run_Template_Server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/.idea/runConfigurations/Run_Template_Server.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Unit_tests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/.idea/runConfigurations/Unit_tests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENCE" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/LICENCE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRADEMARK" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/TRADEMARK" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/clients/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/src/main/kotlin/com/template/Client.kt" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/clients/src/main/kotlin/com/template/Client.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/src/main/kotlin/com/template/webserver/Controller.kt" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/clients/src/main/kotlin/com/template/webserver/Controller.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/src/main/kotlin/com/template/webserver/NodeRPCConnection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/clients/src/main/kotlin/com/template/webserver/NodeRPCConnection.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/src/main/kotlin/com/template/webserver/Server.kt" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/clients/src/main/kotlin/com/template/webserver/Server.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/src/main/resources/static/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/clients/src/main/resources/static/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/clients/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/dev/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/config/dev/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/test/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/config/test/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/constants.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/contracts/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/src/main/kotlin/com/template/contracts/HashedFilesContract.kt" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/contracts/src/main/kotlin/com/template/contracts/HashedFilesContract.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/src/main/kotlin/com/template/contracts/ReceiverContract.kt" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/contracts/src/main/kotlin/com/template/contracts/ReceiverContract.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/src/main/kotlin/com/template/states/GeneratedFilesState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/contracts/src/main/kotlin/com/template/states/GeneratedFilesState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/src/main/kotlin/com/template/states/ReceiverState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/contracts/src/main/kotlin/com/template/states/ReceiverState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/src/test/kotlin/com/template/contracts/ContractTests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/contracts/src/test/kotlin/com/template/contracts/ContractTests.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/repositories.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workflows/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/workflows/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workflows/src/integrationTest/kotlin/com/template/DriverBasedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/workflows/src/integrationTest/kotlin/com/template/DriverBasedTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workflows/src/main/kotlin/com/template/flows/HashedFilesIssue.kt" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/workflows/src/main/kotlin/com/template/flows/HashedFilesIssue.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workflows/src/main/kotlin/com/template/flows/SendAttachment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/workflows/src/main/kotlin/com/template/flows/SendAttachment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workflows/src/main/kotlin/com/template/flows/SendAttachmentCaller.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workflows/src/test/kotlin/com/template/ContractTests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/workflows/src/test/kotlin/com/template/ContractTests.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workflows/src/test/kotlin/com/template/FlowTests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/workflows/src/test/kotlin/com/template/FlowTests.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workflows/src/test/kotlin/com/template/NodeDriver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/workflows/src/test/kotlin/com/template/NodeDriver.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workflows/src/test/kotlin/com/template/StateTests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/CorDapps/workflows/src/test/kotlin/com/template/StateTests.kt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1XAXjwOV4z1iddmJ4RXxofvdPVF" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../corda" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.template" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.StateTests.flowReturnsSignedTransaction">
+    <configuration name="StateTests.allPartiesHaveReceivedAttachments" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.template.StateTests.allPartiesHaveReceivedAttachments&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":workflows:cleanTest" />
+            <option value=":workflows:test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="StateTests.flowReturnsSignedTransaction" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.template.StateTests.flowReturnsSignedTransaction&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":workflows:cleanTest" />
+            <option value=":workflows:test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.StateTests.flowReturnsSignedTransaction" />
+        <item itemvalue="Gradle.StateTests.allPartiesHaveReceivedAttachments" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7c3a7266-6673-4d1f-8469-fb2ce28bccf9" name="Default Changelist" comment="" />
+      <created>1580490011501</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580490011501</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="173" y="61" key="#com.intellij.ide.util.MemberChooser" timestamp="1580725130230">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="173" y="61" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1580725130230" />
+    <state x="619" y="173" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1581343998577">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="619" y="173" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1920.1040/-936.-2160.2560.1400@0.0.1920.1040" timestamp="1581343998577" />
+    <state x="632" y="148" key="FileChooserDialogImpl" timestamp="1581954538381">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="421" y="97" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1580998250697" />
+    <state x="632" y="148" key="FileChooserDialogImpl/0.0.1920.1040/-936.-2160.2560.1400@0.0.1920.1040" timestamp="1581348280672" />
+    <state x="632" y="148" key="FileChooserDialogImpl/0.0.1920.1040/0.-1080.1920.1040/-1080.-1594.1080.1880@0.0.1920.1040" timestamp="1581629910827" />
+    <state x="632" y="148" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1581954538381" />
+    <state width="1877" height="350" key="GridCell.Tab.0.bottom" timestamp="1581776414996">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1037" height="689" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1080.-1594.1080.1880/0.-1080.1920.1040@-1080.-1594.1080.1880" timestamp="1581628806985" />
+    <state width="1877" height="351" key="GridCell.Tab.0.bottom/0.0.1920.1040/-936.-2160.2560.1400@0.0.1920.1040" timestamp="1581428596443" />
+    <state width="1877" height="350" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581776414996" />
+    <state width="1877" height="350" key="GridCell.Tab.0.center" timestamp="1581776414996">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1037" height="689" key="GridCell.Tab.0.center/0.0.1920.1040/-1080.-1594.1080.1880/0.-1080.1920.1040@-1080.-1594.1080.1880" timestamp="1581628806984" />
+    <state width="1877" height="351" key="GridCell.Tab.0.center/0.0.1920.1040/-936.-2160.2560.1400@0.0.1920.1040" timestamp="1581428596443" />
+    <state width="1877" height="350" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581776414996" />
+    <state width="1877" height="350" key="GridCell.Tab.0.left" timestamp="1581776414996">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1037" height="689" key="GridCell.Tab.0.left/0.0.1920.1040/-1080.-1594.1080.1880/0.-1080.1920.1040@-1080.-1594.1080.1880" timestamp="1581628806984" />
+    <state width="1877" height="351" key="GridCell.Tab.0.left/0.0.1920.1040/-936.-2160.2560.1400@0.0.1920.1040" timestamp="1581428596443" />
+    <state width="1877" height="350" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581776414996" />
+    <state width="1877" height="350" key="GridCell.Tab.0.right" timestamp="1581776414996">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1037" height="689" key="GridCell.Tab.0.right/0.0.1920.1040/-1080.-1594.1080.1880/0.-1080.1920.1040@-1080.-1594.1080.1880" timestamp="1581628806985" />
+    <state width="1877" height="351" key="GridCell.Tab.0.right/0.0.1920.1040/-936.-2160.2560.1400@0.0.1920.1040" timestamp="1581428596443" />
+    <state width="1877" height="350" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581776414996" />
+    <state x="121" y="0" key="SettingsEditor" timestamp="1580490040902">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1580490040902" />
+    <state x="657" y="118" width="606" height="804" key="find.popup" timestamp="1581955427968">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-60" y="-2001" width="808" height="1083" key="find.popup/0.0.1920.1040/-936.-2160.2560.1400@-936.-2160.2560.1400" timestamp="1581414149699" />
+    <state x="657" y="118" width="606" height="804" key="find.popup/0.0.1920.1040/-936.-2160.2560.1400@0.0.1920.1040" timestamp="1581427968770" />
+    <state x="657" y="118" width="606" height="804" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581955427968" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1581332316417">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-936.-2160.2560.1400@0.0.1920.1040" timestamp="1581332316417" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1581687946065">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-936.-2160.2560.1400@0.0.1920.1040" timestamp="1581341785869" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581687946065" />
+  </component>
+</project>
