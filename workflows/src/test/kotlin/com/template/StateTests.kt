@@ -46,38 +46,4 @@ class StateTests {
         assert(stx.tx.attachments.isNotEmpty())
         stx.verifyRequiredSignatures()
     }
-
-//    @Test
-//    fun allPartiesHaveReceivedAttachments(){
-//        val partyA = a.info.chooseIdentityAndCert().party
-//        val partyB = b.info.chooseIdentityAndCert().party
-//        val partyC = c.info.chooseIdentityAndCert().party
-//        val hashedFilesIssueFlow = HashedFilesIssue("test-2-10-311-",1, 1, 1)
-//        val hashedFilesFuture = a.startFlow(hashedFilesIssueFlow)
-//        mockNetwork.runNetwork()
-//
-//        val stx: SignedTransaction = hashedFilesFuture.getOrThrow()
-//        val outputState: HashedFilesState = stx.tx.outputStates.get(0) as HashedFilesState
-//
-//        val sendAttachmentsCallerFlow = SendAttachmentCaller(partyB, partyC, outputState.linearId)
-//        val sendAttachmentCallerFuture = a.startFlow(sendAttachmentsCallerFlow)
-//        mockNetwork.runNetwork()
-//
-//        val attachmentsFoundPartyB = b.services.attachments.queryAttachments(
-//                AttachmentQueryCriteria.AttachmentsQueryCriteria(
-//                        uploaderCondition = Builder.like("test-", false)
-//                )
-//        )
-//
-//        assert(attachmentsFoundPartyB.isNotEmpty())
-//
-//        val attachmentsFoundPartyC = c.services.attachments.queryAttachments(
-//                AttachmentQueryCriteria.AttachmentsQueryCriteria(
-//                        uploaderCondition = Builder.like("test-", false)
-//                )
-//        )
-//
-//        assert(attachmentsFoundPartyC.isNotEmpty())
-//
-//    }
 }
