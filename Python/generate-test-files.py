@@ -7,6 +7,7 @@ import requests
 #@PARAM: content byte is the dummy char that will be repeated in the file to reach the file_size.
 #@PARAM: file_size int how big each file should be in megabytes.
 #@PARAM: number_of_files int the quantity of the files to generate on the node.
+#@PARAM: loops int for the amount of requests to run
 def generate_hashed_files(url, test_name, content, file_size, number_of_files, loops):
     for i in range(loops):         
         response = requests.post(url, json={
