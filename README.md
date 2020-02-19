@@ -2,6 +2,8 @@
   <img src="https://www.corda.net/wp-content/uploads/2016/11/fg005_corda_b.png" alt="Corda" width="500">
 </p>
 
+Full Testing Report: https://medium.com/me/stats/post/3670ae670a66
+
 # Corda Attachment Testing - Contents
 
 /Python:
