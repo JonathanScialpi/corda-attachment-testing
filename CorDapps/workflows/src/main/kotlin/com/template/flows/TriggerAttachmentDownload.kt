@@ -16,7 +16,7 @@ import net.corda.core.transactions.TransactionBuilder
 // *********
 @InitiatingFlow
 @StartableByRPC
-class SendAttachment(
+class TriggerAttachmentDownload(
         private val receiver: Party,
         private val attachmentHash: String
         ) : FlowLogic<SignedTransaction>() {
@@ -42,9 +42,7 @@ class SendAttachment(
     }
 }
 
-// Responder flow isn't needed because no other sigs are needed...
-
-@InitiatedBy(SendAttachment::class)
+@InitiatedBy(TriggerAttachmentDownload::class)
 class Responder(val counterpartySession: FlowSession) : FlowLogic<Unit>() {
     @Suspendable
     override fun call() {
