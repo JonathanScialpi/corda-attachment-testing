@@ -41,8 +41,6 @@ class Controller(rpc: NodeRPCConnection) {
         return ResponseEntity.ok(responseMap.toString())
     }
 
-    @RequestMapping(value = "/")
-
     data class NewFilesRequest @JsonCreator constructor(
             val testName: String,
             val content: String,
