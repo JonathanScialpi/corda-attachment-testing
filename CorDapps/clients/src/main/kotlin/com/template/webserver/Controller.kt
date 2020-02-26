@@ -2,7 +2,10 @@ package com.template.webserver
 
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.template.flows.GenerateMockAttachments
+import com.template.flows.TriggerAttachmentDownload
 import com.template.states.GeneratedFilesState
+import net.corda.core.identity.CordaX500Name
+import net.corda.core.identity.Party
 import net.corda.core.messaging.startFlow
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
@@ -24,7 +27,7 @@ class Controller(rpc: NodeRPCConnection) {
     @GetMapping(value = ["/status"])
     private fun isAlive() = "Up and running!"
 
-    @RequestMapping(value = "/generateMockAttachments", method = arrayOf(RequestMethod.POST))
+    @RequestMapping(value = "/generateMockAttachments", method = [RequestMethod.POST])
     private fun generateMockAttachments(@RequestBody generatedFiles: NewFilesRequest): ResponseEntity<Any?> {
         val start = System.currentTimeMillis()
         var result = proxy.startFlow(
@@ -46,5 +49,20 @@ class Controller(rpc: NodeRPCConnection) {
             val content: String,
             val fileSize: String,
             val numberOfFiles: String
+    )
+
+    @RequestMapping(value = "/triggerAttachmentDownload", method = [RequestMethod.POST])
+    private fun triggerAttachmentDownload(@RequestBody downloadRequest: NewDownloadRequest): ResponseEntity<Any?> {
+        val receiverx500Name = CordaX500Name.parse(downloadRequest.receiver)
+        val receiverParty = proxy.wellKnownPartyFromX500Name(receiverx500Name) as Party
+        val start = System.currentTimeMillis()
+        proxy.startFlow(::TriggerAttachmentDownload, receiverParty, downloadRequest.attachmentHash)
+        val elapsedTime = System.currentTimeMillis() - start
+        return ResponseEntity.ok(elapsedTime.toString())
+    }
+
+    data class NewDownloadRequest @JsonCreator constructor(
+            val receiver: String,
+            val attachmentHash: String
     )
 }
