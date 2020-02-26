@@ -1,5 +1,5 @@
 package com.template
-import com.template.flows.HashedFilesIssue
+import com.template.flows.GenerateMockAttachments
 import com.template.states.GeneratedFilesState
 import net.corda.core.identity.CordaX500Name
 import net.corda.core.transactions.SignedTransaction
@@ -37,7 +37,7 @@ class StateTests {
 
     @Test
     fun flowReturnsSignedTransaction(){
-        val flow = HashedFilesIssue("test-2-11-777-",1, 1, 1)
+        val flow = GenerateMockAttachments("test-2-11-777-",1, 1, 1)
         val future = a.startFlow(flow)
         mockNetwork.runNetwork()
         val stx: SignedTransaction = future.getOrThrow()

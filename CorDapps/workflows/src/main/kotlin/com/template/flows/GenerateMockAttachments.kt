@@ -1,7 +1,7 @@
 package com.template.flows
 
 import co.paralleluniverse.fibers.Suspendable
-import com.template.contracts.HashedFilesContract
+import com.template.contracts.GeneratedFilesContract
 import com.template.states.GeneratedFilesState
 import net.corda.core.contracts.UniqueIdentifier
 import net.corda.core.flows.*
@@ -16,7 +16,7 @@ import java.util.*
 // *********
 @InitiatingFlow
 @StartableByRPC
-class HashedFilesIssue(
+class GenerateMockAttachments(
         private val testName: String,
         private val content: Byte,
         private val fileSize: Int,
@@ -43,9 +43,9 @@ class HashedFilesIssue(
         val notary = serviceHub.networkMapCache.notaryIdentities.first()
         val transactionBuilder = TransactionBuilder(notary)
         val output = GeneratedFilesState(filesHashList, listOf(ourIdentity), UniqueIdentifier())
-        val commandData = HashedFilesContract.Commands.Issue()
+        val commandData = GeneratedFilesContract.Commands.Issue()
         transactionBuilder.addCommand(commandData,ourIdentity.owningKey)
-        transactionBuilder.addOutputState(output, HashedFilesContract.ID)
+        transactionBuilder.addOutputState(output, GeneratedFilesContract.ID)
         transactionBuilder.verify(serviceHub)
         val stx = serviceHub.signInitialTransaction(transactionBuilder)
         return subFlow(FinalityFlow(stx, HashSet<FlowSession>(0)))
