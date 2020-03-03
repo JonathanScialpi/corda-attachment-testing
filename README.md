@@ -2,7 +2,7 @@
   <img src="https://www.corda.net/wp-content/uploads/2016/11/fg005_corda_b.png" alt="Corda" width="500">
 </p>
 
-# Corda Attachment Testing - Contents
+#<a href="https://medium.com/corda/experimenting-with-corda-attachments-a95d61d2d372">Experimenting with Corda Attachments</a> 
 
 /Python:
 - /async-rpc.py:  Used to make asynchronous REST calls to ``TriggerAttachmentDownload`` flow from a <a href="https://gitlab.com/bluebank/braid/tree/master/braid-server">Braid proxy server</a>. 
